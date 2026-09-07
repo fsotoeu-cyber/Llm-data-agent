@@ -1,1 +1,140 @@
+{
+  "comentario": "esperado = oráculo computacional resuelto en runtime por pandas. Nunca valores hardcodeados.",
+  "casos": [
+    {
+      "id": "A1_promedio",
+      "tipo": "A",
+      "fixture": "limpio_min.csv",
+      "pregunta": "¿Cuál es el promedio de TIEMPO_ENTREGA_MIN?",
+      "tool_esperada": "Analizar Datos"
+    },
+    {
+      "id": "A2_grafico",
+      "tipo": "A",
+      "fixture": "limpio_min.csv",
+      "pregunta": "Genera un gráfico de barras del tiempo promedio por clima",
+      "tool_esperada": "Generar Gráfico"
+    },
+    {
+      "id": "A3_info",
+      "tipo": "A",
+      "fixture": "limpio_min.csv",
+      "pregunta": "Dame la información general del dataset",
+      "tool_esperada": "Información DF"
+    },
+    {
+      "id": "A4_stats",
+      "tipo": "A",
+      "fixture": "limpio_min.csv",
+      "pregunta": "Muéstrame las estadísticas de las variables numéricas",
+      "tool_esperada": "Resumen Estadístico"
+    },
+    {
+      "id": "A5_limpieza",
+      "tipo": "A",
+      "fixture": "con_nulos.csv",
+      "pregunta": "Limpia los datos",
+      "tool_esperada": "Limpiar Datos"
+    },
+    {
+      "id": "A6_case_insensitive",
+      "tipo": "A",
+      "fixture": "mayusculas.csv",
+      "pregunta": "cuál es el promedio de tiempo_entrega_min",
+      "tool_esperada": "Analizar Datos"
+    },
+    {
+      "id": "B1_promedio_global",
+      "tipo": "B",
+      "fixture": "limpio_min.csv",
+      "pregunta": "¿Cuál es el promedio de TIEMPO_ENTREGA_MIN?",
+      "esperado": "oracle:mean:TIEMPO_ENTREGA_MIN",
+      "tolerancia_relativa": 0.01
+    },
+    {
+      "id": "B2_conteo_total",
+      "tipo": "B",
+      "fixture": "limpio_min.csv",
+      "pregunta": "¿Cuántos registros hay en total?",
+      "esperado": "oracle:len",
+      "tolerancia_relativa": 0.0
+    },
+    {
+      "id": "B3_conteo_sin_columnas",
+      "tipo": "B",
+      "fixture": "con_nulos.csv",
+      "pregunta": "¿Cuántos pedidos hay en total?",
+      "esperado": "oracle:len",
+      "tolerancia_relativa": 0.0,
+      "regression": "fix del guard de conteo sin columnas (2025)"
+    },
+    {
+      "id": "B4_promedio_grupo",
+      "tipo": "B",
+      "fixture": "limpio_min.csv",
+      "pregunta": "Promedio de TIEMPO_ENTREGA_MIN por CLIMA",
+      "esperado": "oracle:groupby_mean:TIEMPO_ENTREGA_MIN:CLIMA",
+      "tolerancia_relativa": 0.01
+    },
+    {
+      "id": "B5_correlacion",
+      "tipo": "B",
+      "fixture": "limpio_min.csv",
+      "pregunta": "¿Cuál es la correlación entre TIEMPO_ENTREGA_MIN y DISTANCIA_KM?",
+      "esperado": "oracle:corr:TIEMPO_ENTREGA_MIN:DISTANCIA_KM",
+      "tolerancia_absoluta": 0.02
+    },
+    {
+      "id": "B6_case_insensitive",
+      "tipo": "B",
+      "fixture": "mayusculas.csv",
+      "pregunta": "promedio de tiempo_entrega_min",
+      "esperado": "oracle:mean:TIEMPO_ENTREGA_MIN",
+      "tolerancia_relativa": 0.01
+    },
+    {
+      "id": "C1_columna_inexistente",
+      "tipo": "C",
+      "fixture": "limpio_min.csv",
+      "pregunta": "Promedio de columna_que_no_existe",
+      "tool_esperada": "Analizar Datos",
+      "salida_debe_contener": ["⚠️"],
+      "salida_debe_contener_cualquiera": [
+        "no encontrada",
+        "no se indicó",
+        "no válida",
+        "no pude interpretar"
+      ],
+      "salida_no_debe_contener": ["Traceback", "iteration limit"]
+    },
+    {
+      "id": "C2_columna_no_numerica",
+      "tipo": "C",
+      "fixture": "limpio_min.csv",
+      "pregunta": "Promedio de CLIMA",
+      "tool_esperada": "Analizar Datos",
+      "salida_debe_contener": ["⚠️"],
+      "salida_no_debe_contener": ["Traceback"]
+    },
+    {
+      "id": "D1_limpio",
+      "tipo": "D",
+      "fixture": "limpio_min.csv",
+      "clasificacion_esperada": "ok",
+      "score_min": 95
+    },
+    {
+      "id": "D2_con_nulos",
+      "tipo": "D",
+      "fixture": "con_nulos.csv",
+      "clasificacion_esperada": "warning"
+    },
+    {
+      "id": "D3_vacio_casi",
+      "tipo": "D",
+      "fixture": "vacio_casi.csv",
+      "clasificacion_esperada": "bloqueante"
+    }
+  ]
+}
 
