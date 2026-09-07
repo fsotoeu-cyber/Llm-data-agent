@@ -1,0 +1,228 @@
+{
+  "metricas": {
+    "tool_selection_accuracy": 100.0,
+    "tool_first_valid_attempt_rate": 100.0,
+    "calculation_accuracy": 100.0,
+    "error_handling_rate": 100.0,
+    "pass_rate": 100.0,
+    "retry_rate": "N/A (requiere integración con API de traces de LangSmith)",
+    "retry_rate_proxy": "14% (2/14 casos, 4 _Exception totales)",
+    "n_casos": 17,
+    "fecha": "2026-09-05T21:59:54"
+  },
+  "resultados": [
+    {
+      "id": "A1_promedio",
+      "tipo": "A",
+      "ok": true,
+      "detalle": "tools=['Analizar Datos'] ok",
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 2.0
+    },
+    {
+      "id": "A2_grafico",
+      "tipo": "A",
+      "ok": true,
+      "detalle": "tools=['Generar Gráfico'] ok",
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Generar Gráfico",
+      "final_attempt": "Generar Gráfico",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 2.3
+    },
+    {
+      "id": "A3_info",
+      "tipo": "A",
+      "ok": true,
+      "detalle": "tools=['Información DF'] ok",
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Información DF",
+      "final_attempt": "Información DF",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 1.7
+    },
+    {
+      "id": "A4_stats",
+      "tipo": "A",
+      "ok": true,
+      "detalle": "tools=['Resumen Estadístico'] ok",
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Resumen Estadístico",
+      "final_attempt": "Resumen Estadístico",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 3.3
+    },
+    {
+      "id": "A5_limpieza",
+      "tipo": "A",
+      "ok": true,
+      "detalle": "tools=['_Exception', 'Limpiar Datos'] ok",
+      "attempts": 2,
+      "exception_count": 1,
+      "first_valid_tool": "Limpiar Datos",
+      "final_attempt": "Limpiar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 1.6
+    },
+    {
+      "id": "A6_case_insensitive",
+      "tipo": "A",
+      "ok": true,
+      "detalle": "tools=['Analizar Datos'] ok",
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 2.4
+    },
+    {
+      "id": "B1_promedio_global",
+      "tipo": "B",
+      "ok": true,
+      "detalle": "oracle=46.3 | evidencia={'match_idx': 0, 'esperado': 46.3} | salida=El promedio de **TIEMPO_ENTREGA_MIN** es **46.3 minutos**.  \n\nEste valor indica que, en promedio, la entrega se realiza ",
+      "numeros_extraidos": [
+        46.3
+      ],
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 9.1
+    },
+    {
+      "id": "B2_conteo_total",
+      "tipo": "B",
+      "ok": true,
+      "detalle": "oracle=20.0 | evidencia={'match_idx': 0, 'esperado': 20.0} | salida=En total, el conjunto de datos contiene **20 registros**.",
+      "numeros_extraidos": [
+        20.0
+      ],
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 5.2
+    },
+    {
+      "id": "B3_conteo_sin_columnas",
+      "tipo": "B",
+      "ok": true,
+      "detalle": "oracle=23.0 | evidencia={'match_idx': 0, 'esperado': 23.0} | salida=Hay **23 pedidos** en total.",
+      "numeros_extraidos": [
+        23.0
+      ],
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 6.2
+    },
+    {
+      "id": "B4_promedio_grupo",
+      "tipo": "B",
+      "ok": true,
+      "detalle": "oracle={'Lluvioso': 49.142857142857146, 'Nublado': 48.833333333333336, 'Soleado': 41.285714285714285} | evidencia={'grupos_matcheados': {'Lluvioso': 49.14, 'Nublado': 48.83, 'Soleado': 41.29}} | salida=**Promedio de TIEMPO_ENTREGA_MIN por CLIMA**\n\n| CLIMA    | Promedio (min) |\n|----------|----------------|\n| Lluvioso | 4",
+      "numeros_extraidos": [
+        49.14,
+        48.83,
+        41.29,
+        41.0,
+        49.0,
+        0.3
+      ],
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 5.4
+    },
+    {
+      "id": "B5_correlacion",
+      "tipo": "B",
+      "ok": true,
+      "detalle": "oracle=-0.024026612203990143 | evidencia={'match_idx': 0, 'esperado': -0.024026612203990143} | salida=La correlación entre **TIEMPO_ENTREGA_MIN** (minutos) y **DISTANCIA_KM** (kilómetros) es **‑0,024**.  \n\n- Este valor est",
+      "numeros_extraidos": [
+        -0.024,
+        0.0
+      ],
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 7.1
+    },
+    {
+      "id": "B6_case_insensitive",
+      "tipo": "B",
+      "ok": true,
+      "detalle": "oracle=35.25 | evidencia={'match_idx': 0, 'esperado': 35.25} | salida=El promedio de **TIEMPO_ENTREGA_MIN** es **35.25 minutos**.  \n\n- Este valor representa el tiempo medio que tarda en comp",
+      "numeros_extraidos": [
+        35.25
+      ],
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 8.3
+    },
+    {
+      "id": "C1_columna_inexistente",
+      "tipo": "C",
+      "ok": true,
+      "detalle": "tools=['_Exception', '_Exception', '_Exception', 'Analizar Datos'] ok",
+      "attempts": 4,
+      "exception_count": 3,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 30.6
+    },
+    {
+      "id": "C2_columna_no_numerica",
+      "tipo": "C",
+      "ok": true,
+      "detalle": "tools=['Analizar Datos'] ok",
+      "attempts": 1,
+      "exception_count": 0,
+      "first_valid_tool": "Analizar Datos",
+      "final_attempt": "Analizar Datos",
+      "tool_first_valid_attempt_ok": true,
+      "segundos": 52.6
+    },
+    {
+      "id": "D1_limpio",
+      "tipo": "D",
+      "ok": true,
+      "detalle": "esperado=ok obtenido=ok score=100",
+      "segundos": 0.0
+    },
+    {
+      "id": "D2_con_nulos",
+      "tipo": "D",
+      "ok": true,
+      "detalle": "esperado=warning obtenido=warning score=78",
+      "segundos": 0.0
+    },
+    {
+      "id": "D3_vacio_casi",
+      "tipo": "D",
+      "ok": true,
+      "detalle": "esperado=bloqueante obtenido=bloqueante score=70",
+      "segundos": 0.0
+    }
+  ]
+}
