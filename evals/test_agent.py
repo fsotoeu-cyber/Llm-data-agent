@@ -1,5 +1,11 @@
 # evals/test_agent.py
-"""Casos A/C con LLM real. Skip automático sin GROQ_API_KEY."""
+"""Casos A/C con LLM real. Skip automático sin GROQ_API_KEY.
+
+El skip es a NIVEL DE MÓDULO (allow_module_level=True): ocurre ANTES de
+instanciar el LLM. Motivo: pytest importa todos los módulos de test durante
+la colección, incluso los deseleccionados por -k. Sin este guard, el CI
+(sin API key) moriría con KeyError al importar el módulo.
+"""
 import os
 import sys
 
@@ -7,9 +13,9 @@ import pytest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-pytestmark = pytest.mark.skipif(
-    not os.environ.get("GROQ_API_KEY"), reason="requiere GROQ_API_KEY (LLM real)"
-)
+# Skip del módulo completo ANTES de tocar agent_helper o instanciar el LLM
+if not os.environ.get("GROQ_API_KEY"):
+    pytest.skip("requiere GROQ_API_KEY (LLM real)", allow_module_level=True)
 
 from agent_helper import preparar_session_state, construir_agente, get_llm  # noqa: E402
 
