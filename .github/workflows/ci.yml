@@ -1,11 +1,33 @@
-.env
-.streamlit/secrets.toml
-__pycache__/
-*.pyc
-.venv/
-venv/
-.pytest_cache/
-.DS_Store
-*.csv
-!evals/fixtures/*.csv
-!data/datos_entregas.csv
+name: tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  pytest-evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate fixtures (if script exists)
+        run: |
+          if [ -f evals/make_fixtures.py ]; then
+            python evals/make_fixtures.py
+          fi
+
+      - name: Run non-LLM tests
+        run: |
+          pytest evals/ -k "not test_agent" -v --tb=short
