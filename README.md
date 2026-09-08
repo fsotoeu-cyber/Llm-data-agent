@@ -29,7 +29,7 @@ Combina un agente ReAct basado en LangChain y Groq con cálculo determinista med
 
 La aplicación está publicada en Streamlit Community Cloud.
 
-🔗 **Demo:** https://<tu-app>.streamlit.app/ ← *pendiente de deploy*
+🔗 **Demo:** [https://<tu-app>.streamlit.app/ ← *pendiente de deploy](https://llm-data-agent.streamlit.app/)*
 
 Durante el desarrollo y las pruebas se utiliza Google Colab. El túnel se utiliza únicamente para exponer temporalmente la aplicación durante la experimentación; no forma parte del deployment final.
 
